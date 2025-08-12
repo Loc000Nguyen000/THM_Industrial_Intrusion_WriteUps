@@ -29,7 +29,7 @@ Shellcodes: No Results
 
 ### Task 11:
 + Access port 8080 --> We find the feature /log/view has the vuln "File Path Traversal".
-![alt text](image.png)
+<img width="1125" height="628" alt="image" src="https://github.com/user-attachments/assets/df020a7d-94c0-48eb-9514-403d2efd07e9" />
 
 + With Path Traversal we can read sensitive file "opt/hmi/update.py" and "opt/hmi/app.py"
 + We've known website is build by Python and run Nginx server.
@@ -99,7 +99,7 @@ SIGNATURE: "secr3tFTW192d2390"
 + Upload payload to /config/update, we need to modify the Headers `Content-Type` and add `X-FTW` to verify payload.
 + Open netcat to capture the shell:
 
-![alt text](image-1.png)
+<img width="1708" height="530" alt="image-1" src="https://github.com/user-attachments/assets/cb36f774-65f6-4690-a087-9646ce8ccc7c" />
 --> Get the flag.
 
 ### Task 35:
@@ -107,7 +107,7 @@ SIGNATURE: "secr3tFTW192d2390"
 + Access port 80 --> Page login 
 + Try test SQLi with param `username` --> Get the error SQL
 
-![alt text](image-2.png)
+<img width="671" height="502" alt="image-2" src="https://github.com/user-attachments/assets/becb076b-2a38-4381-a4a8-6a01c05f9a9c" />
 
 + Using SQL map to exploit
 ```
@@ -115,10 +115,11 @@ sqlmap -r ~/Documents/request.txt --dbms=mysql -p username --level=4 --risk=3 --
 ```
 We dump credential:
 
-![alt text](image-3.png)
+<img width="935" height="740" alt="image-3" src="https://github.com/user-attachments/assets/e4c8cd2b-3826-4f49-8e2e-598b5d90ebb9" />
 
-![alt text](image-4.png)
+<img width="796" height="175" alt="image-4" src="https://github.com/user-attachments/assets/e3bfaec4-4e00-41c0-a094-426a3b3fbf27" />
 
 + We didn't have to crack the hash, we had to use the SQL injection and UNION a fake user. We back to the page login, we could do 
 `username='UNION SELECT 1,admin,[any sha256 hash]` and then pass the original unhashed `password` which chose in the password field.
+
 --> Login successfull and get the Flag.
