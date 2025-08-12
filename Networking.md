@@ -5,6 +5,7 @@ Open taskfile in Wireshark; filter for modbus traffic:
 Follow TCP stream for Read Holding Registers
 The flag is obvious, but can filter for outgoing traffic from exploited machine and tidy the answer.
 
+<img width="1730" height="586" alt="image" src="https://github.com/user-attachments/assets/297acb11-02aa-42ec-9476-acae5ad70dd0" />
 
 ### Task 23:
 + Two ways to do this task
@@ -30,6 +31,7 @@ while True:
 ```
 --> 'start' will begin at register 0 to 200 (although I confirmed there are only 125 registers) and will go by 10 registers at a time. We had Wireshark running on Tun0 or whatever connection is linked to the machine and captured the response traffic like the previous task.
 
+<img width="1751" height="850" alt="image" src="https://github.com/user-attachments/assets/726eaccb-9f4d-4d20-8473-074a0f0f2251" />
 
 + 2nd Method will print output directly to terminal:
 ```
@@ -57,3 +59,5 @@ for start in range(0, 200, 10):  # step in chunks of 10
 
 client.close()
 ```
+
+<img width="321" height="342" alt="image" src="https://github.com/user-attachments/assets/1e957cca-b654-4c7e-b6e3-e48a0df3d50c" />
